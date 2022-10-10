@@ -1,0 +1,12 @@
+{% extends 'livraria/partials/base.html' %}
+
+{% block content %}
+    <h2>Novo livro</h2>
+    <form method="POST" class="table" enctype="multipart/form-data" style="max-width: 800px;margin:20px auto;padding:10px;border:2px solid rgb(37, 37, 37);border-radius: 20px;">
+    {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+         </div>
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

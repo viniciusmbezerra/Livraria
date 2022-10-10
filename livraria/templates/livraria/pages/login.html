@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css"
+        integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css"
+        integrity="sha512-sVSECYdnRMezwuq5uAjKQJEcu2wybeAPjU4VJQ9pCRcCY4pIpIw4YMHIOQ0CypfwHRvdSPbH++dA3O4Hihm/LQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css"
+        integrity="sha512-tk4nGrLxft4l30r9ETuejLU0a3d7LwMzj0eXjzc16JQj+5U1IeVoCuGLObRDc3+eQMUcEQY1RIDPGvuA7SNQ2w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <title>Django | Livraria</title>
+</head>
+
+<body>
+    <!-- Section: Design Block -->
+    <section class="background-radial-gradient overflow-hidden">
+
+        <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+            <div class="row gx-lg-5 align-items-center mb-5">
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                    <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                        The best offer <br />
+                        <span style="color: hsl(218, 81%, 75%)">for your business</span>
+                    </h1>
+                    <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Temporibus, expedita iusto veniam atque, magni tempora mollitia
+                        dolorum consequatur nulla, neque debitis eos reprehenderit quasi
+                        ab ipsum nisi dolorem modi. Quos?
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                    <div class="card bg-glass">
+                        <div class="card-body px-4 py-5 px-md-5">
+                            
+                        <form action="{% url 'autenticar_usuario' %}" method="post">
+                            {% csrf_token %}
+                                
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="form3Example3" class="form-control" name="username"/>
+                                    <label class="form-label" for="form3Example3">Username address</label>
+                                </div>
+
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="form3Example4" class="form-control" name="password"/>
+                                    <label class="form-label" for="form3Example4">Password</label>
+                                </div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary btn-block mb-4">
+                                    Sign in
+                                </button>
+
+                                <!-- Register buttons -->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-sm btn-success btn-block">
+                                        Sign up
+                                    </button>
+                                    <p>or sign up with:</p>
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                        <i class="fab fa-github"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: Design Block -->
+</body>
+
+</html>

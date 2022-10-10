@@ -1,0 +1,65 @@
+{% extends 'livraria/partials/base.html' %}
+
+{% block content %}
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Lista de livros</h1>
+        <p class="lead text-muted">Abaixo estão todos os livros diponíveis</p>
+        {% comment %} <p>
+          <a href="#" class="btn btn-primary my-2">Main call to action</a>
+          <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p> {% endcomment %}
+      </div>
+      {% if user.is_authenticated %}
+        <h3>Hello my friend {{user.username}}</h3>
+      {% else %}
+          <p>Você precisa realiar o login</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        
+        {% for livro in livros %}
+            <div class="col">
+              <div class="card shadow-sm">
+                  <a href="{% url 'detalhar_livro' id=livro.id %}">
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="500" src="{{ livro.imagem.url }}">
+                  </a>
+
+                  <div class="card-body">
+                  <h4>{{ livro.nome }} - {{ livro.codigo }}</h4>
+                  <h6>
+                    {% for nome in livro.autor.all %}
+                          {{ nome }}<br/>
+                    {% endfor %}
+                  </h6>
+                  <p class="card-text">{{ livro.descricao }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                      {% if user.is_authenticated %}
+                        <a class="btn btn-default" href="{% url 'editar_livro' id=livro.id %}">
+                          <button type="button" class="btn btn-info">Editar</button>
+                        </a>
+                      {% endif %}
+                      <div class="bg-secondary p-3 text-white" style="border-radius:20px;">Preço: R$ {{ livro.valor }}</div>
+                      </div>
+                      <small class="text-muted">Ano: {{ livro.ano }}</small>
+                  </div>
+                  </div>
+              </div>
+            </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}
