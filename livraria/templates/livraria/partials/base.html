@@ -30,8 +30,16 @@
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'listar_autores' %}">Listar Autores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'listar_categorias' %}">Listar Categorias</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'cadastrar_livro' %}">Cadastrar Livro</a>
             </li>
+            {% endif %}
           </ul>
           <form class="d-flex" action="{% url 'buscar_livro' %}" method="POST">
             {% csrf_token %}

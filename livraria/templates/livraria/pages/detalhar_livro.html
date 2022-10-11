@@ -1,14 +1,35 @@
 {% extends 'livraria/partials/base.html' %}
 
 {% block content %}
-    <h3>{{ livro.nome }}</h3>
-        Código: {{ livro.codigo }}<br/>
-        Ano: {{ livro.ano }}<br/>
-        <img height="300" width="200" src="{{ livro.imagem.url }}"> 
-        Valor: {{ livro.valor }}<br/>
-        Autores: <br/>
-        {% for nome in livro.autor.all %}
-            {{ nome }}<br/>
-        {% endfor %}     
-            <br>
+<div class="row" style="max-width:1000px;margin:100px auto;">
+    <div class="col-6">
+        <a href="{% url 'detalhar_livro' id=livro.id %}">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="500" src="{{ livro.imagem.url }}">
+        </a>
+    </div>
+    <div class="col-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+            <h4>{{ livro.nome }} - {{ livro.codigo }}</h4>
+            <h6>
+            {% for nome in livro.autor.all %}
+                    {{ nome }}<br/>
+            {% endfor %}
+            </h6>
+            <p class="card-text">{{ livro.descricao }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'editar_livro' id=livro.id %}">
+                    <button type="button" class="btn btn-info">Editar</button>
+                </a>
+                {% endif %}
+                <div class="bg-secondary p-3 text-white" style="border-radius:20px;">Preço: R$ {{ livro.valor }}</div>
+                </div>
+                <small class="text-muted">Ano: {{ livro.ano }}</small>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
