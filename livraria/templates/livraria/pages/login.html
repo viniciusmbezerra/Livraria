@@ -31,14 +31,11 @@
             <div class="row gx-lg-5 align-items-center mb-5">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                     <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                        The best offer <br />
-                        <span style="color: hsl(218, 81%, 75%)">for your business</span>
+                        A melhor <strong>LIVRARIA</strong> do mundo<br />
+                        <span style="color: hsl(218, 81%, 75%)">feita totalmente no framework DJANGO</span>
                     </h1>
                     <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Temporibus, expedita iusto veniam atque, magni tempora mollitia
-                        dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-                        ab ipsum nisi dolorem modi. Quos?
+                        Django é um framework para desenvolvimento rápido para web, escrito em Python, que utiliza o padrão model-template-view (MTV). Foi criado originalmente como sistema para gerenciar um site jornalístico na cidade de Lawrence, no Kansas.  
                     </p>
                 </div>
 
@@ -52,7 +49,7 @@
                         <form action="{% url 'autenticar_usuario' %}" method="post">
                             {% csrf_token %}
                                 
-                                <!-- Email input -->
+                                <!-- Username input -->
                                 <div class="form-outline mb-4">
                                     <input type="text" id="form3Example3" class="form-control" name="username"/>
                                     <label class="form-label" for="form3Example3">Username address</label>
@@ -71,9 +68,9 @@
 
                                 <!-- Register buttons -->
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-sm btn-success btn-block">
+                                    <a href="{% url 'cadastro' %}" class="btn btn-sm btn-success btn-block">
                                         Sign up
-                                    </button>
+                                    </a>
                                     <p>or sign up with:</p>
                                     <button type="button" class="btn btn-link btn-floating mx-1">
                                         <i class="fab fa-facebook-f"></i>

@@ -61,9 +61,16 @@ from django.contrib.auth import authenticate, login, logout
 def page_login(request):
     return render(request, 'livraria/pages/login.html',{})
 
+def cadastro(request):
+    return render(request, 'livraria/pages/cadastro.html',{})   
+
 def logout_usuario(request):
     logout(request)
     return render(request, 'livraria/pages/login.html',{})
+
+def cadastrar_usuario(request):
+    username = request.POST['username']
+    password = request.POST['password']
 
 def autenticar_usuario(request):
     username = request.POST['username']
@@ -74,4 +81,4 @@ def autenticar_usuario(request):
         livros = Livro.objects.all()
         return render(request, 'livraria/pages/listar_livros.html', {'livros':livros})
     else:
-        return render(request, 'livraria/pages/login.html',{})
+        return render(request, 'livraria/pages/page_login.html',{})

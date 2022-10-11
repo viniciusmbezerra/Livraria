@@ -13,5 +13,7 @@ urlpatterns = [
     #rotas do login e logout
     path('page_login', views.page_login, name='page_login'),
     path('autenticar_usuario', views.autenticar_usuario, name='autenticar_usuario'),
+    path('cadastrar_usuario', views.cadastrar_usuario, name='cadastrar_usuario'),
+    path('cadastro', views.cadastro, name='cadastro'),
     path('logout_usuario', views.logout_usuario, name='logout_usuario'),
 ]
